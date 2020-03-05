@@ -91,7 +91,6 @@ export const evensOnlyAndDoubleArray = (arr) => {
 // find an item method return 'not found' if not found
 export const findItem = (arr, item) => {
   let searchItem =  arr.find((element)=> {
-    console.log(element)
     return element === item
   })
   if(searchItem == undefined){
@@ -101,12 +100,73 @@ export const findItem = (arr, item) => {
 }
 
 // NUMBER 8 
-// export const sortArray = (arr) => {
-//   arr.sort()
-// }
-// sortArray(numberArray) //=> [4,3,2,1] *desc*
+export const sortArray = (arr) => {
+  return arr.sort((a,b)=>{
+    if(a <b ){return 1}
+    else if (a > b){return -1}
+    return 0
+  })
+}
 
 
+// ARTIST 1 
+export const doubleLikes = (arr) => {
+  return arr.map((element)=>{
+    return {name: element.name, likes: element.likes *2}
+  })
+}
+
+// ARTIST 2
+export const moreThan100Likes = (arr) => {
+  return arr.filter((element)=>{
+    return element.likes > 100
+  })
+}
+
+// ARTIST 3
+//  return an array of strings of artist name
+export const justArtistMoreThan100Likes = (arr) => {
+  let checkArtist =  arr.filter((element)=>{
+    return element.likes > 100
+  })
+  return checkArtist.map((element)=> {return element.name})
+}
+// justArtistMoreThan100Likes(artists) //=> ['c']; // use filter
+
+
+//ARTIST 4 
+export const numberOfLikes = (arr) => {
+  let total = 0
+  arr.map((element)=>{
+    total += element.likes
+  })
+  return total
+}
+
+// ARTIST 5 
+export const findObjByName = (arr, item) => {
+  let searchItem =  arr.find((element)=> {
+    return element.name === item
+  })
+  if(searchItem == undefined){
+    return "Item Not Found"
+  }
+  return searchItem
+}
+
+// ARTIST 6
+export const sortArtistByName = (arr) => {
+  return arr.sort((a,b) => {
+    if(a.name < b.name){
+      return -1
+    }
+    else if (a.name > b.name){return 1}
+    return 0
+  })
+}
+
+
+// sortArtistByName(artists)
 
 
 

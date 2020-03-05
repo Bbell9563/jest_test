@@ -4,10 +4,22 @@ import {doubleArray,
         allNumbersGreaterThanZero,
         someNumbersAreOdd,
         evensOnlyAndDoubleArray,
-        findItem
+        findItem,
+        sortArray,
+        doubleLikes,
+        moreThan100Likes,
+        justArtistMoreThan100Likes,
+        numberOfLikes, 
+        findObjByName,
+        sortArtistByName
 } from '../app' 
 
 var numberArray = [1,2,3,4]
+var artists = [
+  {name: 'a', likes:100},
+  {name: 'c', likes:99},
+  {name: 'c', likes:101}, 
+]
 // NUMBER 1 TEST
 describe('NO.1 Testing doubleArray', () => {
   test('test given array', ()=>{
@@ -99,3 +111,55 @@ describe('NO.7 Test findItem', () => {
 })
 
 // NUMBER 8 TEST
+describe('NO.8 Test sortArray',()=>{
+  test('test sorting numbersArray', ()=> {
+    expect(sortArray(numberArray)).toEqual([4,3,2,1])
+  })
+  test('test array has strings', ()=>{
+    expect(sortArray([1,4,'a','g'])).toEqual([4,1,'g','a'])
+  })
+})
+
+// ARTIST 1 TEST
+describe('Artist.1 Test doubleLikes', () => {
+  test('test doubling artist likes',()=>{
+    expect(doubleLikes(artists)).toEqual([{name: 'a', likes:200},{name: 'c', likes:198},{name: 'c', likes:202}])
+  })
+})
+
+// ARTIST 2 TEST
+describe('Artist.2 Test moreThan100Likes', ()=>{
+  test('test finding artist',() => {
+    expect(moreThan100Likes(artists)).toEqual([ {name: 'c', likes:101} ])
+  })
+})
+
+// ARTIST 3 TEST
+describe('Artist.3 Test justArtistMoreThan100Likes', ()=>{
+  test('test finding just artist',() => {
+    expect(justArtistMoreThan100Likes(artists)).toEqual(['c'])
+  })
+})
+
+// ARTIST 4 TEST
+describe('Artist.4 Test numberOfLikes', ()=>{
+  test('test for sum of all artist likes', ()=>{
+    expect(numberOfLikes(artists)).toEqual(300)
+  })
+})
+
+// ARTIST 5 TEST
+describe('Artist.5 Test', () => {
+  test('find a ', () => {
+    expect(findObjByName(artists, 'a')).toEqual({name: 'a', likes:100})
+  })
+})
+
+// ARTIST 6 TEST
+describe('Artist.6 Test', () => {
+  test('testing the sort', ()=>{
+    expect(sortArtistByName(artists)).toEqual([{name: 'a', likes:100},
+    {name: 'c', likes:99},
+    {name: 'c', likes:101}])
+  })
+})
