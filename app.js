@@ -1,5 +1,4 @@
 // NUMBER 1
-// return array with double values in array
 export const doubleArray= (arr) =>{
   let results =  arr.map(double)
   if(results.includes("error")){
@@ -7,7 +6,6 @@ export const doubleArray= (arr) =>{
   }
   return results
 }
-
 const double = (element) => {
   if(typeof element === "string"){
     return "error"
@@ -15,10 +13,7 @@ const double = (element) => {
   return element * 2
 }
 
-
 // NUMBER 2
-// return array with all even numbers
-
 export const evensOnlyArray = (arr) => {
   return arr.filter((element)=>{
     if(element % 2 == 0 ){return element}
@@ -27,8 +22,6 @@ export const evensOnlyArray = (arr) => {
 
 
 // NUMBER 3
-// return array with sum of numbers
-
 export const arraySum = (arr) => {
   let results = arr.reduce((total, num)=>{
    if(typeof num === "string"){
@@ -41,7 +34,6 @@ export const arraySum = (arr) => {
 }
 
 // NUMBER 4
-// return true if every item greater than 0
 export const allNumbersGreaterThanZero = (arr) => {
   let stringCheck = arr.map(checkForString)
   if(stringCheck.includes("error")){
@@ -58,9 +50,7 @@ const checkForString = (element) => {
   return element
 }
 
-
 // NUMBER 5
-// return true if some one or more items odd*
 export const someNumbersAreOdd = (arr) => {
   let stringCheck = arr.map(checkForString)
   if(stringCheck.includes("error")){
@@ -72,7 +62,6 @@ export const someNumbersAreOdd = (arr) => {
 }
 
 // NUMBER 6
-// return array double and even
 export const evensOnlyAndDoubleArray = (arr) => {
   let stringCheck = arr.map(checkForString)
   if(stringCheck.includes("error")){
@@ -81,14 +70,12 @@ export const evensOnlyAndDoubleArray = (arr) => {
   let evenCheck = stringCheck.filter((element)=>{
     if(element % 2 == 0){return element}
   })
-
   return evenCheck.map((element)=>{
     return element * 2
   })
 }
 
 // NUMBER 7
-// find an item method return 'not found' if not found
 export const findItem = (arr, item) => {
   let searchItem =  arr.find((element)=> {
     return element === item
@@ -108,7 +95,6 @@ export const sortArray = (arr) => {
   })
 }
 
-
 // ARTIST 1 
 export const doubleLikes = (arr) => {
   return arr.map((element)=>{
@@ -124,15 +110,12 @@ export const moreThan100Likes = (arr) => {
 }
 
 // ARTIST 3
-//  return an array of strings of artist name
 export const justArtistMoreThan100Likes = (arr) => {
   let checkArtist =  arr.filter((element)=>{
     return element.likes > 100
   })
   return checkArtist.map((element)=> {return element.name})
 }
-// justArtistMoreThan100Likes(artists) //=> ['c']; // use filter
-
 
 //ARTIST 4 
 export const numberOfLikes = (arr) => {
@@ -164,13 +147,3 @@ export const sortArtistByName = (arr) => {
     return 0
   })
 }
-
-
-// sortArtistByName(artists)
-
-
-
-
-
-
-
